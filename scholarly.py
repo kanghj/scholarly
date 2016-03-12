@@ -44,7 +44,7 @@ def _get_page(pagerequest):
     """Return the data for a page on scholar.google.com"""
     # Note that we include a sleep to avoid overloading the scholar server
     time.sleep(5+random.uniform(0, 5))
-    print _SCHOLARHOST+pagerequest
+    print _SCHOLARHOST, pagerequest
     resp_url = _SESSION.get(_SCHOLARHOST+pagerequest, headers=_HEADERS, cookies=_COOKIES)
     if resp_url.status_code == 200:
         return resp_url.text
