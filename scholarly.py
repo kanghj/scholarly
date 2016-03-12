@@ -44,6 +44,7 @@ def _get_page(pagerequest):
     """Return the data for a page on scholar.google.com"""
     # Note that we include a sleep to avoid overloading the scholar server
     time.sleep(5+random.uniform(0, 5))
+    print _SCHOLARHOST+pagerequest
     resp_url = _SESSION.get(_SCHOLARHOST+pagerequest, headers=_HEADERS, cookies=_COOKIES)
     if resp_url.status_code == 200:
         return resp_url.text
@@ -70,7 +71,7 @@ def _get_page(pagerequest):
         url_response = _SCHOLARHOST+'/sorry/CaptchaRedirect?continue={0}&id={1}&captcha={2}&submit=Submit'.format(dest_url, g_id, g_response)
         resp_captcha = _SESSION.get(url_response, headers=_HEADERS)
         print('Forwarded to {0}'.format(resp_captcha.url))
-        return _get_page(re.findall(r'https:\/\/(?:.*?)(\/.*)', resp_captcha.url)[0])
+        return _get_page(re.findall(r'http:\/\/(?:.*?)(\/.*)', resp_captcha.url)[0])
     else:
         raise Exception('Error: {0} {1}'.format(resp_url.status_code, resp_url.reason))
 
