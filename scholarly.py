@@ -25,7 +25,7 @@ _HEADERS = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/41.0.2272.76 Chrome/41.0.2272.76 Safari/537.36',
     'accept': 'text/html,application/xhtml+xml,application/xml'
     }
-_SCHOLARHOST = 'https://scholar.google.com'
+_SCHOLARHOST = 'http://scholar.google.com'
 _PUBSEARCH = '/scholar?q={0}'
 _AUTHSEARCH = '/citations?view_op=search_authors&hl=en&mauthors={0}'
 _KEYWORDSEARCH = '/citations?view_op=search_authors&hl=en&mauthors=label:{0}'
