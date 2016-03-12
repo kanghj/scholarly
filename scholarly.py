@@ -45,7 +45,7 @@ def _get_page(pagerequest):
     # Note that we include a sleep to avoid overloading the scholar server
     time.sleep(5+random.uniform(0, 5))
     print(_SCHOLARHOST, pagerequest)
-    resp_url = _SESSION.get(_SCHOLARHOST+pagerequest, headers=_HEADERS, cookies=_COOKIES)
+    resp_url = _SESSION.get(_SCHOLARHOST+pagerequest, headers=_HEADERS, cookies=_COOKIES, verify=False)
     if resp_url.status_code == 200:
         return resp_url.text
     if resp_url.status_code == 503:
